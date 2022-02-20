@@ -38,7 +38,6 @@ export class HomePageComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
   onClickRun(event?: any): void {
-    console.log(event)
     if (!event || event.code === 'Enter' && event.ctrlKey) {
       this.details = [];
       this.apiService.post(this.dbLink, {
@@ -50,8 +49,8 @@ export class HomePageComponent implements OnInit {
         console.log(response);
       }, error => {
         this.details = [];
-        this.errorMessage = error.message;
         console.log(error);
+        this.errorMessage = error.error || error.message;
       })
     }
   }

@@ -64,7 +64,7 @@
   <ng-container *ngIf="details.length === 0; else hasData">
     <h1>No Data</h1>
     <!-- <h3 color="warn" *ngIf="errorMessage" >{{errorMessage}}</h3> -->
-    <button mat-flat-button color="warn" *ngIf="errorMessage" style="white-space: pre-wrap;">{{errorMessage}}</button>
+    <button mat-flat-button color="warn" *ngIf="errorMessage" style="white-space: pre-wrap; width: 100%;">{{errorMessage}}</button>
   </ng-container>
   <ng-template #hasData>
     <app-custom-table
