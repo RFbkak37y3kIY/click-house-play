@@ -1,0 +1,76 @@
+<div style="position: sticky; left: 0;">
+  <mat-toolbar color="primary">
+
+    <span>ClickHouse Play console</span>
+    <span class="example-spacer"></span>
+    <span> {{ dbLink }} : {{ dbLogin }} </span>
+
+  </mat-toolbar>
+
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title> Access config: </mat-panel-title>
+        <mat-panel-description>
+          {{ dbLink }} : {{ dbLogin }} :
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field appearance="fill">
+        <mat-label>DataBase link</mat-label>
+        <input matInput [(ngModel)]="dbLink" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>DB Login</mat-label>
+        <input matInput [(ngModel)]="dbLogin" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>DB Password</mat-label>
+        <input type="password" matInput [(ngModel)]="dbPassword" />
+      </mat-form-field>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> SQL query panel </mat-panel-title>
+        <mat-panel-description>
+          {{ sqlRequest }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>SQL query</mat-label>
+        <textarea matInput [(ngModel)]="sqlRequest"></textarea>
+      </mat-form-field>
+
+      <button
+        mat-stroked-button
+        matTooltip="Ctrl + Enter"
+        color="primary"
+        (click)="onClickRun()"
+        style="float: right"
+      >
+        Run
+      </button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div style="max-width: 100%; overflow: auto;">
+  <!-- RESULT -->
+  <ng-container *ngIf="details.length === 0; else hasData">
+    <h1>No Data</h1>
+    <!-- <h3 color="warn" *ngIf="errorMessage" >{{errorMessage}}</h3> -->
+    <button mat-flat-button color="warn" *ngIf="errorMessage" style="white-space: pre-wrap;">{{errorMessage}}</button>
+  </ng-container>
+  <ng-template #hasData>
+    <app-custom-table
+      [details]="details"
+      [columns]="columns"
+      [isPaginator]="false"
+    ></app-custom-table>
+  </ng-template>
+</div>
