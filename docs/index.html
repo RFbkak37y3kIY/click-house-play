@@ -2,6 +2,18 @@
   <meta charset="utf-8">
   <title>ClickHousePlay</title>
   <base href="/">
+  <script>
+    /**
+        If app running not on root folder, for example: http://domain/sub-folder/
+
+        then window['base-href'] should be equal "/sub-folder/"
+
+        EXAMPLE:
+        window['base-href'] = '/sub-folder/';
+    */
+    window['base-href'] = '/click-house-play/';
+    document.head.querySelector('base').href = window['base-href'];
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -10,6 +22,6 @@
 <style>.mat-typography{font:400 14px/20px Roboto,Helvetica Neue,sans-serif;letter-spacing:normal}body,html{height:100%}body{margin:0;font-family:Roboto,Helvetica Neue,sans-serif}</style><link rel="stylesheet" href="styles.609b987b78322009b989.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.609b987b78322009b989.css"></noscript></head>
 <body class="mat-typography">
   <app-root></app-root>
-<script src="runtime.b914d4238f29b4d205f7.js" defer></script><script src="polyfills.ae084b3a37256f7f0dff.js" defer></script><script src="scripts.e1da3a366641c1831c1e.js" defer></script><script src="main.c2fa4d2e04b44d00711d.js" defer></script>
+<script src="runtime.b914d4238f29b4d205f7.js" defer></script><script src="polyfills.ae084b3a37256f7f0dff.js" defer></script><script src="scripts.e1da3a366641c1831c1e.js" defer></script><script src="main.b43c1dad77cd6043b87e.js" defer></script>
 
 </body></html>
