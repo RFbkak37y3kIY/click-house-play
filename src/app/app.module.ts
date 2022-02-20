@@ -10,6 +10,7 @@ import { MaterialModule } from './app.material-module';
 import { HomePageComponent } from './pages/home.page/home.page.component';
 import { CustomTableModule } from './components/custom-table/custom-table.module';
 import { FormsModule } from '@angular/forms';
+import { APP_BASE_HREF } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: (window as any)['base-href'] }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
